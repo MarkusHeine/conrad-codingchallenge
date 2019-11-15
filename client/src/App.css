@@ -14,6 +14,10 @@ p {
 
 .App-header {
   background-color: blue;
+  height: 13vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .App-main {
