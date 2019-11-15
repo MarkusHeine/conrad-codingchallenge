@@ -1,20 +1,25 @@
 .App {
   text-align: center;
+  height: 100vh;
+  width: 100vw;
 }
 
-.App-logo {
-  height: 40vmin;
+h1 {
+  margin: 0;
+}
+
+p {
+  margin: 0;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: blue;
+}
+
+.App-main {
+  background-color: aquamarine;
+  width: 100vw;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .App-link {
