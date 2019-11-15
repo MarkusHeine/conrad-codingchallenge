@@ -1,15 +1,16 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { getReposByUser } from "../redux/actions";
+
 import "./search.css";
 
 function Search() {
-  const [searchFor, setSearchFor] = useState("user");
-  const [user, setUser] = useState("");
-  const [repo, setRepo] = useState("");
-  const [searchLanguage, setSearchLanguage] = useState("javascript");
+  const dispatch = useDispatch();
 
-  console.log("user", user);
-  console.log("repo", repo);
-  console.log("langugae:", searchLanguage);
+  const [searchFor, setSearchFor] = useState("user");
+  const [user, setUser] = useState("markusheine");
+  const [repo, setRepo] = useState("3d-effect-letters");
+  const [searchLanguage, setSearchLanguage] = useState("javascript");
 
   const searchForHandler = e => {
     setSearchFor(e.target.value);
@@ -20,7 +21,18 @@ function Search() {
 
   const searchHandler = e => {
     e.preventDefault();
-    console.log("klicks");
+    if (searchFor === "user") {
+      (async () => {
+        // const repos = await axios.get(`/gitapi/getrepos/${user}`);
+        // console.log(repos);
+
+        dispatch(getReposByUser(user));
+      })();
+    } else if (searchFor === "repos") {
+      //search for repos
+    } else if (searchFor === "userRepos") {
+      //search for user repos
+    }
   };
 
   let userSearch = (
