@@ -8,7 +8,9 @@ function Results() {
     return state.repos;
   });
 
-  console.log(repos);
+  const bookmark = id => {
+    console.log(`I want to bookmarkt ${id}`);
+  };
 
   let elem;
 
@@ -18,8 +20,8 @@ function Results() {
     } else {
       elem = (
         <span>
-          {repos.items.map((item, index) => (
-            <div key={index} className="result-card">
+          {repos.items.map(item => (
+            <div key={item.id} className="result-card">
               <div className="avatar">
                 <img src={item.owner.avatar_url} alt="user avatar" />
               </div>
@@ -27,6 +29,12 @@ function Results() {
                 <span className="info-fullname">{item.full_name}</span>
                 <span className="info-name">{item.owner.login}</span>
                 <span className="info-description">{item.description}</span>
+                <span
+                  className="link info-bookmark"
+                  onClick={() => bookmark(item.id)}
+                >
+                  bookmark
+                </span>
               </div>
             </div>
           ))}

@@ -1,5 +1,4 @@
 .App {
-  text-align: center;
   height: 100vh;
   width: 100vw;
 }
@@ -26,6 +25,6 @@ p {
   display: flex;
 }
 
-.App-link {
-  color: #09d3ac;
+.link {
+  cursor: pointer;
 }
