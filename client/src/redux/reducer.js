@@ -1,5 +1,5 @@
 export default function reducer(state = {}, action) {
-  if (action.type === "GET_REPOS_BY_USER") {
+  if (action.type === "SET_REPOS") {
     state = {
       ...state,
       repos: action.repos,

@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { getReposByUser } from "../redux/actions";
+import {
+  getReposByUser,
+  getReposByKeyword,
+  getReposByUserAndKeyword
+} from "../redux/actions";
 
 import "./search.css";
 
@@ -8,14 +12,14 @@ function Search() {
   const dispatch = useDispatch();
 
   const [searchFor, setSearchFor] = useState("user");
-  const [user, setUser] = useState("markusheine");
-  const [repo, setRepo] = useState("3d-effect-letters");
+  const [user, setUser] = useState("");
+  const [keyword, setKeyword] = useState("");
   const [searchLanguage, setSearchLanguage] = useState("javascript");
 
   const searchForHandler = e => {
     setSearchFor(e.target.value);
     setUser("");
-    setRepo("");
+    setKeyword("");
     setSearchLanguage("javascript");
   };
 
@@ -23,15 +27,12 @@ function Search() {
     e.preventDefault();
     if (searchFor === "user") {
       (async () => {
-        // const repos = await axios.get(`/gitapi/getrepos/${user}`);
-        // console.log(repos);
-
         dispatch(getReposByUser(user));
       })();
-    } else if (searchFor === "repos") {
-      //search for repos
+    } else if (searchFor === "keyword") {
+      dispatch(getReposByKeyword(keyword, searchLanguage));
     } else if (searchFor === "userRepos") {
-      //search for user repos
+      dispatch(getReposByUserAndKeyword(user, keyword));
     }
   };
 
@@ -49,8 +50,8 @@ function Search() {
       <input
         name="repo"
         type="text"
-        value={repo}
-        onChange={e => setRepo(e.target.value)}
+        value={keyword}
+        onChange={e => setKeyword(e.target.value)}
       />
       <select
         value={searchLanguage}
@@ -70,7 +71,7 @@ function Search() {
 
   if (searchFor === "user") {
     elem = userSearch;
-  } else if (searchFor === "repos") {
+  } else if (searchFor === "keyword") {
     elem = repoSearch;
   } else if (searchFor === "userRepos") {
     elem = (
@@ -85,7 +86,7 @@ function Search() {
     <div className="search-wrapper">
       <select value={searchFor} onChange={searchForHandler}>
         <option value="user">user</option>
-        <option value="repos">repos</option>
+        <option value="keyword">keyword</option>
         <option value="userRepos">user repos</option>
       </select>
       <div className="search-input">{elem}</div>
