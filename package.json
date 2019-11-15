@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon index.js",
+    "client": "cd client && npm start",
+    "dev": "concurrently --kill-others-on-fail \"yarn run start\" \"yarn run client\"",
+    "devnpm": "concurrently --kill-others-on-fail \"npm run start\" \"npm run client\"",
+    "heroku-postbuild": "cd client && yarn install && yarn run build"
   },
   "author": "",
   "license": "ISC",
