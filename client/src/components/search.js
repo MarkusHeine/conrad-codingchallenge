@@ -16,6 +16,16 @@ function Search() {
     })();
   };
 
+  const keyPress = e => {
+    if (e.key === "Enter") {
+      console.log("set", e.target.value);
+      setKeyword(e.target.value);
+      (async () => {
+        dispatch(getReposByKeyword(keyword));
+      })();
+    }
+  };
+
   return (
     <div className="search-wrapper">
       <div className="search-input">
@@ -25,6 +35,7 @@ function Search() {
           type="text"
           value={keyword}
           onChange={e => setKeyword(e.target.value)}
+          onKeyPress={e => keyPress(e)}
         />
       </div>
       <button onClick={searchHandler}>search</button>

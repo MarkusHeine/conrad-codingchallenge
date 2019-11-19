@@ -9,7 +9,7 @@ function Results() {
   });
 
   const bookmark = id => {
-    console.log(`I want to bookmarkt ${id}`);
+    console.log(`I want to bookmark ${id}`);
   };
 
   let elem;
