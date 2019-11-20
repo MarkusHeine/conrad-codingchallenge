@@ -1,15 +1,18 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { addNewBookmark } from "../redux/actions";
 
-import "./results.css";
+import "./css/results.css";
 
 function Results() {
+  const dispatch = useDispatch();
+
   const repos = useSelector(state => {
     return state.repos;
   });
 
-  const bookmark = id => {
-    console.log(`I want to bookmark ${id}`);
+  const bookmark = bookmarkData => {
+    dispatch(addNewBookmark(bookmarkData));
   };
 
   let elem;
@@ -31,7 +34,14 @@ function Results() {
                 <span className="info-description">{item.description}</span>
                 <span
                   className="link info-bookmark"
-                  onClick={() => bookmark(item.id)}
+                  onClick={() =>
+                    bookmark({
+                      ownerName: item.owner.login,
+                      ownerId: item.owner.id,
+                      repoName: item.name,
+                      repoId: item.id
+                    })
+                  }
                 >
                   bookmark
                 </span>

@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.css";
+import "./css/App.css";
 import Search from "./components/search";
 import Results from "./components/results";
 import Bookmarks from "./components/bookmarks";

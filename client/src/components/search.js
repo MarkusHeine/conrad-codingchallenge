@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getReposByKeyword } from "../redux/actions";
 
-import "./search.css";
+import "./css/search.css";
 
 function Search() {
   const dispatch = useDispatch();
