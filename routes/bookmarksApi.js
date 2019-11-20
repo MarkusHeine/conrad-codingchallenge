@@ -46,18 +46,15 @@ router.get("/getbookmarks", async (req, res) => {
  */
 
 router.post("/addbookmark", async (req, res) => {
-  console.log("add new bookmark");
   const newBookmark = new Bookmark({
     user_name: req.body.ownerName,
     user_id: req.body.ownerId,
     repo_name: req.body.repoName,
     repo_id: req.body.repoId
   });
-  console.log("new bookmark:", newBookmark);
   try {
     await newBookmark.save();
     const resp = await Bookmark.find();
-    console.log("resp vrom add new Bookmark:", resp);
     res.json({
       error: false,
       bookmarks: resp

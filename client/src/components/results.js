@@ -11,8 +11,6 @@ function Results() {
     return state.repos;
   });
 
-  console.log("repos:", repos);
-
   const bookmark = bookmarkData => {
     dispatch(addNewBookmark(bookmarkData));
   };

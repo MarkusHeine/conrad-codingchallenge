@@ -18,7 +18,6 @@ function Search() {
 
   const keyPress = e => {
     if (e.key === "Enter") {
-      console.log("set", e.target.value);
       setKeyword(e.target.value);
       (async () => {
         dispatch(getReposByKeyword(keyword));
