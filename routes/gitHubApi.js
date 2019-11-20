@@ -10,11 +10,29 @@ const endPoint = "https://api.github.com/";
  */
 
 router.get("/searchrepos/:query", async (req, res) => {
-  console.log(req.params.query);
   try {
     const resp = await axios.get(
       `${endPoint}search/repositories?${req.params.query}`
     );
+    const repos = JSON.stringify(resp.data);
+    res.json({
+      repositories: JSON.parse(repos)
+    });
+  } catch (err) {
+    res.json({
+      error: true
+    });
+  }
+});
+
+/**
+ * Search for a repo via Id in the GitHubApi
+ * @param {number} req.params.id
+ */
+
+router.get("/getrepobyid/:id", async (req, res) => {
+  try {
+    const resp = await axios.get(`${endPoint}repositories/${req.params.id}`);
     const repos = JSON.stringify(resp.data);
     res.json({
       repositories: JSON.parse(repos)

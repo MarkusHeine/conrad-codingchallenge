@@ -11,6 +11,8 @@ function Results() {
     return state.repos;
   });
 
+  console.log("repos:", repos);
+
   const bookmark = bookmarkData => {
     dispatch(addNewBookmark(bookmarkData));
   };
@@ -18,12 +20,12 @@ function Results() {
   let elem;
 
   if (repos) {
-    if (repos.items.length === 0) {
+    if (repos.length === 0) {
       elem = <div>no repos</div>;
     } else {
       elem = (
         <span>
-          {repos.items.map(item => (
+          {repos.map(item => (
             <div key={item.id} className="result-card">
               <div className="avatar">
                 <img src={item.owner.avatar_url} alt="user avatar" />

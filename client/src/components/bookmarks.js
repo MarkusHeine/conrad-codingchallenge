@@ -1,6 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getBookmarks } from "../redux/actions";
+import {
+  getBookmarks,
+  delteBookmark,
+  getCalledBookmark
+} from "../redux/actions";
 
 import "./css/bookmarks.css";
 
@@ -10,10 +14,12 @@ function Bookmarks() {
     return state.bookmarks;
   });
 
-  console.log("bookmarks", bookmarks);
-
   const removeBookmark = dbId => {
-    console.log(`remove bookmark with id ${dbId}`);
+    dispatch(delteBookmark(dbId));
+  };
+
+  const callBookmark = repoId => {
+    dispatch(getCalledBookmark(repoId));
   };
 
   useEffect(() => {
@@ -25,7 +31,7 @@ function Bookmarks() {
       {bookmarks &&
         bookmarks.map(bookmark => (
           <div key={bookmark._id} className="bookmark-card">
-            <p>
+            <p className="link" onClick={() => callBookmark(bookmark.repo_id)}>
               {bookmark.user_name} {bookmark.repo_name}
             </p>
             <p className="link" onClick={() => removeBookmark(bookmark._id)}>
