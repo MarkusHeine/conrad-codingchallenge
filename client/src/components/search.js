@@ -27,17 +27,19 @@ function Search() {
 
   return (
     <div className="search-wrapper">
-      <div className="search-input">
-        {" "}
-        <input
-          name="repo"
-          type="text"
-          value={keyword}
-          onChange={e => setKeyword(e.target.value)}
-          onKeyPress={e => keyPress(e)}
-        />
-      </div>
-      <button onClick={searchHandler}>search</button>
+      <input
+        className="search-input"
+        name="repo"
+        type="text"
+        value={keyword}
+        onChange={e => setKeyword(e.target.value)}
+        onKeyPress={e => keyPress(e)}
+        placeholder="search"
+      />
+
+      <button className="search-button" onClick={searchHandler}>
+        search
+      </button>
     </div>
   );
 }

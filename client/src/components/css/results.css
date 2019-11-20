@@ -1,13 +1,14 @@
 .results-wrapper {
-  background-color: sienna;
   width: 65vw;
+  padding-left: 45px;
 }
 
 .result-card {
   display: flex;
   width: 80%;
-  margin: 10px;
-  background-color: blueviolet;
+  margin: 10px 50px;
+  min-width: 390px;
+  border-bottom: 1px solid #ececec;
 }
 
 .avatar img {
@@ -23,9 +24,21 @@
   justify-content: flex-start;
   align-content: flex-start;
   width: 90%;
-  background-color: beige;
+}
+
+.result-card-headline {
+  widows: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .info-fullname {
   font-weight: bold;
+  font-size: 1.4em;
+  margin: 0.2em 0;
+}
+
+.info-name {
+  font-weight: bold;
+  margin: 0.1em 0;
 }

@@ -31,12 +31,21 @@ function Bookmarks() {
       {bookmarks &&
         bookmarks.map(bookmark => (
           <div key={bookmark._id} className="bookmark-card">
-            <p className="link" onClick={() => callBookmark(bookmark.repo_id)}>
-              {bookmark.user_name} {bookmark.repo_name}
-            </p>
-            <p className="link" onClick={() => removeBookmark(bookmark._id)}>
-              remove
-            </p>
+            <div className="bookmark-card-headline">
+              <span
+                className="link bookmark-card-name"
+                onClick={() => callBookmark(bookmark.repo_id)}
+              >
+                {bookmark.user_name}
+              </span>
+              <span
+                className="link"
+                onClick={() => removeBookmark(bookmark._id)}
+              >
+                remove
+              </span>
+            </div>
+            <span> {bookmark.repo_name}</span>
           </div>
         ))}
     </div>

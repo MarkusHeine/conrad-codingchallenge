@@ -1,6 +1,23 @@
 .search-wrapper {
-  background-color: green;
   height: 30%;
   display: flex;
   justify-content: center;
+}
+
+.search-input {
+  border: 1px solid #ececec;
+  height: 40px;
+  width: 400px;
+  margin-right: 10px;
+  background-color: white;
+}
+
+.search-button {
+  border: 1px solid #ececec;
+  height: 44px;
+  width: 80px;
+  margin-right: 10px;
+  background: white;
+  margin: 0;
+  padding: 0;
 }

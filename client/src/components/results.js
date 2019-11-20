@@ -19,7 +19,7 @@ function Results() {
 
   if (repos) {
     if (repos.length === 0) {
-      elem = <div>no repos</div>;
+      elem = <div>no repos to show</div>;
     } else {
       elem = (
         <span>
@@ -29,22 +29,24 @@ function Results() {
                 <img src={item.owner.avatar_url} alt="user avatar" />
               </div>
               <div className="info">
-                <span className="info-fullname">{item.full_name}</span>
+                <div className="result-card-headline">
+                  <span className="info-fullname">{item.full_name}</span>
+                  <span
+                    className="link info-bookmark"
+                    onClick={() =>
+                      bookmark({
+                        ownerName: item.owner.login,
+                        ownerId: item.owner.id,
+                        repoName: item.name,
+                        repoId: item.id
+                      })
+                    }
+                  >
+                    bookmark
+                  </span>
+                </div>
                 <span className="info-name">{item.owner.login}</span>
                 <span className="info-description">{item.description}</span>
-                <span
-                  className="link info-bookmark"
-                  onClick={() =>
-                    bookmark({
-                      ownerName: item.owner.login,
-                      ownerId: item.owner.id,
-                      repoName: item.name,
-                      repoId: item.id
-                    })
-                  }
-                >
-                  bookmark
-                </span>
               </div>
             </div>
           ))}
@@ -52,7 +54,7 @@ function Results() {
       );
     }
   } else {
-    elem = <div>no repos</div>;
+    elem = <div>no repos to show</div>;
   }
 
   return <div className="results-wrapper">{elem}</div>;

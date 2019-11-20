@@ -1,4 +1,23 @@
 .bookmarks-wrapper {
-  background-color: tomato;
   width: 35vw;
+}
+
+.bookmark-card {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ececec;
+}
+
+.bookmark-card-headline {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.bookmark-card-name {
+  font-weight: bold;
 }
