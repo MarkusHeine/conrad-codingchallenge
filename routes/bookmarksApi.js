@@ -1,17 +1,5 @@
 const router = require("express").Router();
-const mongoose = require("mongoose");
 const Bookmark = require("../model/Bookmark");
-
-/**
- * connects to mongoose database
- * @param {string} DB_CONNECT Login Data for the database
- */
-
-mongoose.connect(process.env.DB_CONNECT, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-});
-mongoose.set("useFindAndModify", false);
 
 /**
  * Get all saved Bookmarks
