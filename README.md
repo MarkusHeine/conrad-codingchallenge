@@ -7,29 +7,39 @@ A small HTTP API with a React Frontend
 to clone the repo 
 
 ```
-git clone https://github.com/MarkusHeine/conrad-codingchallenge.git
+$> git clone https://github.com/MarkusHeine/conrad-codingchallenge.git
 ```
 
 ### Installing
 
-install dependencies
+Install dependencies
 
 ```
-npm install --save
+$> npm ci
 ```
 
 ```
-yarn install
+$> yarn install
 ```
 
 Install nodemon
 
 ```
-npm install nodemon
+$> npm install nodemon
 ```
 
 ```
-yarn add nodemon
+$> yarn add nodemon
+```
+
+Install client dependencies
+
+```
+$> cd "client" && yarn install
+```
+
+```
+$> cd "client" && npm ci
 ```
 
 
@@ -49,11 +59,11 @@ Create a new Cluster at https://www.mongodb.com/ and replace `USERNAME` and `PAS
 to start dev mode
 
 ```
-yarn run dev
+$> yarn run dev
 ```
 
 ```
-npm run devnpm
+$> npm run devnpm
 ```
 
 
