@@ -14,12 +14,9 @@ router.get("/searchrepos/:query", async (req, res) => {
     const resp = await axios.get(
       `${endPoint}search/repositories?${req.params.query}`
     );
-    const repos = JSON.stringify(resp.data);
-    res.json({
-      repositories: JSON.parse(repos)
-    });
+    res.status(200).send(resp.data);
   } catch (err) {
-    res.json({
+    res.send(400).json({
       error: true
     });
   }
@@ -33,12 +30,9 @@ router.get("/searchrepos/:query", async (req, res) => {
 router.get("/getrepobyid/:id", async (req, res) => {
   try {
     const resp = await axios.get(`${endPoint}repositories/${req.params.id}`);
-    const repos = JSON.stringify(resp.data);
-    res.json({
-      repositories: JSON.parse(repos)
-    });
+    res.status(200).send(resp.data);
   } catch (err) {
-    res.json({
+    res.send(400).json({
       error: true
     });
   }

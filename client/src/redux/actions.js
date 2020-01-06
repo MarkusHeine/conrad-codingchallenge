@@ -4,7 +4,7 @@ export async function getReposByKeyword(keyword) {
   const resp = await axios.get(`gitapi/searchrepos/q=${keyword}`);
   return {
     type: "SET_REPOS",
-    repos: resp.data.repositories.items
+    repos: resp.data.items
   };
 }
 
@@ -12,7 +12,7 @@ export async function getCalledBookmark(repoId) {
   const resp = await axios.get(`gitapi/getrepobyid/${repoId}`);
   return {
     type: "SET_REPOS",
-    repos: [resp.data.repositories]
+    repos: [resp.data]
   };
 }
 
