@@ -24,12 +24,12 @@ mongoose.set("useFindAndModify", false);
 router.get("/getbookmarks", async (req, res) => {
   try {
     const resp = await Bookmark.find();
-    res.send(200).json({
+    res.status(200).json({
       error: false,
       bookmarks: resp
     });
   } catch (err) {
-    res.send(400).json({
+    res.status(400).json({
       error: true,
       errormsg: err
     });
@@ -55,12 +55,12 @@ router.post("/addbookmark", async (req, res) => {
   try {
     await newBookmark.save();
     const resp = await Bookmark.find();
-    res.send(200).json({
+    res.status(200).json({
       error: false,
       bookmarks: resp
     });
   } catch (err) {
-    res.send(400).json({
+    res.status(400).json({
       error: true,
       errormsg: err
     });
@@ -78,12 +78,12 @@ router.delete("/deletebookmark/:id", async (req, res) => {
       _id: req.params.id
     });
     const resp = await Bookmark.find();
-    res.send(200).json({
+    res.status(200).json({
       error: false,
       bookmarks: resp
     });
   } catch (err) {
-    res.send(400).json({
+    res.status(400).json({
       error: true,
       errormsg: err
     });
