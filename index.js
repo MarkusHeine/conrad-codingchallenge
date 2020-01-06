@@ -16,6 +16,4 @@ app.use(compression());
 app.use("/gitapi/", apiRoute);
 app.use("/bookmarkapi/", bookmarkRoute);
 
-app.listen(process.env.PORT, () =>
-  console.log(`Listening in ${process.env.PORT} FM`)
-);
+app.listen(process.env.PORT);

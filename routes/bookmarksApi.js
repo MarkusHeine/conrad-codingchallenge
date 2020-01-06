@@ -7,14 +7,10 @@ const Bookmark = require("../model/Bookmark");
  * @param {string} DB_CONNECT Login Data for the database
  */
 
-mongoose.connect(
-  process.env.DB_CONNECT,
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  },
-  () => console.log("connected to db")
-);
+mongoose.connect(process.env.DB_CONNECT, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
 mongoose.set("useFindAndModify", false);
 
 /**
