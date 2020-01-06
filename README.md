@@ -10,9 +10,9 @@ to clone the repo
 $> git clone https://github.com/MarkusHeine/conrad-codingchallenge.git
 ```
 
-### Installing
+###  Installing
 
-#####Install server dependencies
+##### Install server dependencies
 
 ```
 $> npm ci
@@ -24,7 +24,7 @@ $> yarn install
 
 for installing nodemon please visit https://www.npmjs.com/package/nodemon
 
-#####Install client dependencies
+##### Install client dependencies
 
 ```
 $> cd "client" && yarn install
